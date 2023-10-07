@@ -22,7 +22,7 @@ resource "docker_container" "dealhunter-backend" {
   count = var.backend_instance_count
 
   name = "${var.app_namespace}-dealhunter-backend-${count.index}"
-  image = docker_image.dealhunter-backend.latest
+  image = docker_image.dealhunter-backend.name
 
   networks_advanced {
     name = docker_network.dealhunter-net.id
