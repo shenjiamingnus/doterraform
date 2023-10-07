@@ -1,16 +1,7 @@
-# images
+#images
 resource "docker_image" "dealhunter-backend" {
   name = "nandonus/dealhunter-backend:${var.backend_version}"
 }
-
-#data "docker_registry_image" "dealhunter" {
-#name = "nandonus/dealhunter-backend:${var.backend_version}"
-#}
-#
-#resource "docker_image" "dealhunter-backend" {
-#name = data.docker_registry_image.dealhunter.name
-#pull_triggers = [data.docker_registry_image.dealhunter.sha256_digest]
-#}
 
 # the stack
 resource "docker_network" "dealhunter-net" {
