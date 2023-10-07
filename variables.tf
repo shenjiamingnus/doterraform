@@ -22,12 +22,22 @@ variable do_region {
   default = "sgp1"
 }
 
+variable backend_version {
+  type = string
+  default = "latest"
+}
+
 variable do_image {
   type = string
   default = "ubuntu-20-04-x64"
 }
 
 variable do_size {
+  type = string
+  default = "s-2vcpu-4gb"
+}
+
+variable nginx_do_size {
   type = string
   default = "s-1vcpu-512mb-10gb"
 }
@@ -39,4 +49,9 @@ variable do_ssh_key {
 
 variable ssh_private_key {
   type = string
+}
+
+variable backend_instance_count{
+  type = number
+  default = 2
 }
