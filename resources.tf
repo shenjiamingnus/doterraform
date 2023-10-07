@@ -8,8 +8,8 @@ data "docker_registry_image" "dealhunter" {
 }
 
 resource "docker_image" "dealhunter-backend" {
-  name = ${data.docker_registry_image.dealhunter.name}
-  pull_triggers = ${data.docker_registry_image.dealhunter.sha256_digest}
+  name = data.docker_registry_image.dealhunter.name
+  pull_triggers = data.docker_registry_image.dealhunter.sha256_digest
 }
 
 # the stack
@@ -22,7 +22,7 @@ resource "docker_container" "dealhunter-backend" {
   count = var.backend_instance_count
 
   name = "${var.app_namespace}-dealhunter-backend-${count.index}"
-  image = ${docker_image.dealhunter-backend.latest}
+  image = docker_image.dealhunter-backend.latest
 
   networks_advanced {
     name = docker_network.dealhunter-net.id
