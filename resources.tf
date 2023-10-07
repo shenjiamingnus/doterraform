@@ -22,13 +22,12 @@ resource "docker_container" "dealhunter-backend" {
   count = var.backend_instance_count
 
   name = "${var.app_namespace}-dealhunter-backend-${count.index}"
-  image = docker_image.dealhunter-backend.latest
+  image = docker_image.dealhunter-backend.image_id
 
   networks_advanced {
     name = docker_network.dealhunter-net.id
   }
 
-  restart = always
 
   ports {
     internal = 8080
