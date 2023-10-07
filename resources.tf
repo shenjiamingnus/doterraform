@@ -31,7 +31,7 @@ resource "docker_container" "dealhunter-backend" {
 
   ports {
     internal = 8080
-    external = "32772+${count.index}"
+    external = 32772+tonumber("${count.index}")
   }
 }
 
