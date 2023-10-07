@@ -42,7 +42,7 @@ resource "digitalocean_droplet" "nginx" {
   name = "nginx"
   image = var.do_image
   region = var.do_region
-  size = var.nginx_do_size
+  size = var.do_size
 
   ssh_keys = [ data.digitalocean_ssh_key.terraform.id ]
 

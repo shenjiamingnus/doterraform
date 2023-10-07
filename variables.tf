@@ -37,11 +37,6 @@ variable do_size {
   default = "s-2vcpu-4gb"
 }
 
-variable nginx_do_size {
-  type = string
-  default = "s-1vcpu-512mb-10gb"
-}
-
 variable do_ssh_key {
   type = string
   default = "terraform"
